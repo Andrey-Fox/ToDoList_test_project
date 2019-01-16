@@ -8,11 +8,11 @@ export default class LoginForm extends React.Component {
 		super(props);
 
 		this.state = {
-				login: '',
-				password: '',
-				activeUser:'',
-				checKUser: false,
-				mesage: ''
+			login: '',
+			password: '',
+			activeUser:'',
+			checKUser: false,
+			mesage: ''
 		};
 
 		this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -33,11 +33,15 @@ export default class LoginForm extends React.Component {
 
 		if(this.state.login.length < 5){
 
-			this.setState({		mesage: 'Логин должен быть не мение 5 символов'	});
+			this.setState({
+				mesage: 'Логин должен быть не мение 5 символов'
+			});
 
 		} else if (this.state.password.length < 5){
 
-			this.setState({		mesage: 'Пароль должен быть не мение 5 символов'	});
+			this.setState({
+				mesage: 'Пароль должен быть не мение 5 символов'
+			});
 
 		} else if ((localStorage.getItem('Account'))!=null){
 			user =JSON.parse(localStorage.getItem('Account'));
@@ -49,8 +53,8 @@ export default class LoginForm extends React.Component {
 				localStorage.setItem('Account', JSON.stringify(user));
 
 				this.setState({
-						activeUser: this.state.login,
-						checKUser: true
+					activeUser: this.state.login,
+					checKUser: true
 				});
 
 				localStorage.setItem('User', JSON.stringify( this.state.login));
@@ -59,29 +63,29 @@ export default class LoginForm extends React.Component {
 				let	userCheckPassword = userCheck.filter((todo, index) => todo.password === this.state.password)
 				if(userCheckPassword.length === 0){
 					this.setState({
-							mesage: 'Логин или пароль введены неверно.'
+						mesage: 'Логин или пароль введены неверно.'
 					});
 				}else{
 					localStorage.setItem('User', JSON.stringify( this.state.login));
 				}
 			}
 		} else {
-				user.push ({
-						login:this.state.login, 
-						password:this.state.password
-				});
+			user.push ({
+				login:this.state.login, 
+				password:this.state.password
+			});
 
-				localStorage.setItem('Account', JSON.stringify(user));
-				this.setState({
-						activeUser: this.state.login,
-						checKUser: true
-				});
-				localStorage.setItem('User', JSON.stringify( this.state.login));
+			localStorage.setItem('Account', JSON.stringify(user));
+			this.setState({
+				activeUser: this.state.login,
+				checKUser: true
+			});
+			localStorage.setItem('User', JSON.stringify( this.state.login));
 		}
 
 		this.setState({
-				login: "",
-				password: ""
+			login: "",
+			password: ""
 		});
 	}
 
@@ -100,28 +104,29 @@ export default class LoginForm extends React.Component {
 					<Header />
 					<form className="login" action="/register" method="post">
 						<input	className="UserName" 
-										type="text" 
-										placeholder="username" 
-										id="username" 
-										name="Login"
-										onChange={this.handleChangeEmail}
-										value={this.state.login}
-										/><br/>
+							type="text" 
+							placeholder="username" 
+							id="username" 
+							name="Login"
+							onChange={this.handleChangeEmail}
+							value={this.state.login}/>
+						<br/>
 						<input className="UserPassword" 
-										type="password" 
-										placeholder="password" 
-										id="password" 
-										name="Password"
-										onChange={this.handleChangePassword}
-										value={this.state.password}
-										/><br/>
-										<div className = 'mesage'> {mesage} </div>
+							type="password" 
+							placeholder="password" 
+							id="password" 
+							name="Password"
+							onChange={this.handleChangePassword}
+							value={this.state.password}/>
+						<br/>
+						<div className = 'mesage'> 
+							{mesage} 
+						</div>
 						<input className="loginButton" 
-										type="button" 
-										id="entrance" 
-										value="Login"
-										onClick={() => this.onSubmit(this.state)}
-										/>
+							type="button" 
+							id="entrance" 
+							value="Login"
+							onClick={() => this.onSubmit(this.state)}/>
 						<br/>
 					</form>
 				</header>

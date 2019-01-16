@@ -6,7 +6,7 @@ export default class TodoInput extends React.Component {
 		super(props);
 
 		this.state = {
-				value: this.props.todoText
+			value: this.props.todoText
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -22,7 +22,7 @@ export default class TodoInput extends React.Component {
 			this.props.addTodo(todo);
 
 			this.setState({
-					value: ''
+				value: ''
 			});
 		}
 	}
@@ -33,15 +33,14 @@ export default class TodoInput extends React.Component {
 
 	render() {
 		return (
-			<div className = "to-do-input grid">
-				<input className ="input grid" 
-							type = "text"
-							placeholder = "Введите задание" 
-							value = {this.state.value}
-							onChange={this.handleChange}
-				/>
+			<div className="to-do-input grid">
+				<input className="input grid" 
+					type="text"
+					placeholder="Введите задание" 
+					value = {this.state.value}
+					onChange={this.handleChange}/>
 				<button className = "buttons grid" 
-								onClick={() => this.addTodo(this.state.value)} >Добавить
+					onClick={() => this.addTodo(this.state.value)} >Добавить
 				</button>
 			</div>
 		);

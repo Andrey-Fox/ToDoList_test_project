@@ -11,12 +11,12 @@ class App extends Component {
 		super(props);
 
 		let tododays = [],
-				todos = [],
-				tododayActive = false,
-				tododaytask = [],
-				nextId = 1,
-				nextDaysId = 1,
-				users = localStorage.getItem('User');
+			todos = [],
+			tododayActive = false,
+			tododaytask = [],
+			nextId = 1,
+			nextDaysId = 1,
+			users = localStorage.getItem('User');
 
 		if(localStorage.getItem(users)) {
 		let todostorage = JSON.parse(localStorage.getItem(users));
@@ -63,14 +63,14 @@ class App extends Component {
 			tododays.push({active: true, id: this.state.nextDaysId, days: "new day"});
 
 			this.setState({
-					tododays: tododays,
-					nextDaysId: ++this.state.nextDaysId,
-					tododayActive: this.state.nextDaysId-1,
-					tododaytask: [],
+				tododays: tododays,
+				nextDaysId: ++this.state.nextDaysId,
+				tododayActive: this.state.nextDaysId-1,
+				tododaytask: [],
 			});
 
 			let todooo = {
-							tododays:tododays,tododaytask:[]
+				tododays:tododays,tododaytask:[]
 			};
 
 			this.todoHi(todooo);
@@ -79,12 +79,12 @@ class App extends Component {
 
 	todoHi(e) {
 		let todo = {
-					tododays: e.tododays === undefined ? this.state.tododays : e.tododays,
-					todos: e.todos === undefined ? this.state.todos : e.todos,
-					tododayActive: e.tododayActive === undefined ? this.state.tododayActive : e.tododayActive,
-					tododaytask: e.tododaytask === undefined ? this.state.tododaytask : e.tododaytask,
-					nextId: this.state.nextId,
-					nextDaysId: this.state.nextDaysId
+			tododays: e.tododays === undefined ? this.state.tododays : e.tododays,
+			todos: e.todos === undefined ? this.state.todos : e.todos,
+			tododayActive: e.tododayActive === undefined ? this.state.tododayActive : e.tododayActive,
+			tododaytask: e.tododaytask === undefined ? this.state.tododaytask : e.tododaytask,
+			nextId: this.state.nextId,
+			nextDaysId: this.state.nextDaysId
 		};
 
 		localStorage.setItem(this.state.users, JSON.stringify(todo));
@@ -102,17 +102,17 @@ class App extends Component {
 		obg.active = true
 
 		this.setState({
-				tododays: asd,
-				tododayActive: DayId,
-				tododaytask: this.state.todos.filter((todo, index) => todo.activeDay === DayId)
+			tododays: asd,
+			tododayActive: DayId,
+			tododaytask: this.state.todos.filter((todo, index) => todo.activeDay === DayId)
 		});
 
 		let todooo = {
-						tododayActive: DayId,
-						tododaytask: this.state.todos.filter((todo, index) => todo.activeDay === DayId)
+			tododayActive: DayId,
+			tododaytask: this.state.todos.filter((todo, index) => todo.activeDay === DayId)
 		};
 
-				this.todoHi(todooo);
+		this.todoHi(todooo);
 	}
 
 	addTodo(todoText) {
@@ -122,24 +122,24 @@ class App extends Component {
 			let tododaytask = this.state.tododaytask.slice();
 
 			todos.push({
-						activeDay: this.state.tododayActive,
-						id: this.state.nextId,
-						text: todoText
+				activeDay: this.state.tododayActive,
+				id: this.state.nextId,
+				text: todoText
 			});
 			tododaytask.push({
-						activeDay: this.state.tododayActive,
-						id: this.state.nextId, text: todoText
+				activeDay: this.state.tododayActive,
+				id: this.state.nextId, text: todoText
 			});
 
 			this.setState({
-					todos: todos,
-					nextId: ++this.state.nextId,
-					tododaytask: tododaytask
+				todos: todos,
+				nextId: ++this.state.nextId,
+				tododaytask: tododaytask
 			});
 
 			let todooo = {
-							todos: todos,
-							tododaytask: tododaytask
+				todos: todos,
+				tododaytask: tododaytask
 			};
 			this.todoHi(todooo);
 		}
@@ -153,11 +153,11 @@ class App extends Component {
 			obgs.days = todoText.newText
 		}
 		this.setState({
-				tododays: asd
+			tododays: asd
 		});
 
 		let todooo = {
-						tododays: asd
+			tododays: asd
 		};
 		this.todoHi(todooo);
 	}
@@ -172,13 +172,13 @@ class App extends Component {
 		let todoss = asd.filter((todo, index) => todo.activeDay === (todoText.activeDay ))
 
 		this.setState({
-				todos: asd,
-				tododaytask: todoss
+			todos: asd,
+			tododaytask: todoss
 		});
 
 		let todooo = {
-						todos: asd,
-						tododaytask: todoss
+			todos: asd,
+			tododaytask: todoss
 		};
 
 		this.todoHi(todooo);
@@ -186,20 +186,20 @@ class App extends Component {
 
 	removeTododay(id) {
 		this.setState({
-				tododays: this.state.tododays.filter((todo, index) => todo.id !== id),
-				todos: this.state.todos.filter((todo, index) => todo.activeDay !== id),
+			tododays: this.state.tododays.filter((todo, index) => todo.id !== id),
+			todos: this.state.todos.filter((todo, index) => todo.activeDay !== id),
 		});
 
 		if(this.state.tododayActive === id) {
 			this.setState({
-					tododaytask: []
+				tododaytask: []
 			});
 		}
 
 		let todooo = {
-						tododays: this.state.tododays.filter((todo, index) => todo.id !== id),
-						todos: this.state.todos.filter((todo, index) => todo.activeDay !== id),
-						tododaytask: this.state.tododayActive === id ? [] : this.state.tododaytask
+			tododays: this.state.tododays.filter((todo, index) => todo.id !== id),
+			todos: this.state.todos.filter((todo, index) => todo.activeDay !== id),
+			tododaytask: this.state.tododayActive === id ? [] : this.state.tododaytask
 		};
 
 		this.todoHi(todooo);
@@ -208,14 +208,14 @@ class App extends Component {
 
 	removeTodo(id) {
 		this.setState({
-				todos: this.state.todos.filter((todo, index) => todo.id !== id),
-				tododaytask: this.state.tododaytask.filter((todo, index) => todo.id !== id)
+			todos: this.state.todos.filter((todo, index) => todo.id !== id),
+			tododaytask: this.state.tododaytask.filter((todo, index) => todo.id !== id)
 		});
 
 		let todooo = {
-						tododays: this.state.tododays.filter((todo, index) => todo.id !== id),
-						todos: this.state.todos.filter((todo, index) => todo.id !== id),
-						tododaytask: this.state.tododaytask.filter((todo, index) => todo.id !== id)
+			tododays: this.state.tododays.filter((todo, index) => todo.id !== id),
+			todos: this.state.todos.filter((todo, index) => todo.id !== id),
+			tododaytask: this.state.tododaytask.filter((todo, index) => todo.id !== id)
 		};
 
 		this.todoHi(todooo);
@@ -232,14 +232,14 @@ class App extends Component {
 							<ul>
 								{this.state.tododays.map((tododays)=> {
 									return(
-								<Tododays	tododay={tododays} 
+										<Tododays	tododay={tododays} 
 													addtododays = {this.addTododays}  
 													removeTododay={this.removeTododay}
 													toDoDaysActive={this.toDoDaysActive}
 													apdateName ={this.apdateNamedays}
-														/>
-												)
-											})
+										/>
+									)
+								})
 								}
 								<li className = "new-to-do-days" onClick={() => this.addTododays(true)}>
 										<span>+</span> 
@@ -248,21 +248,21 @@ class App extends Component {
 						</div>
 
 					<TodoInput	todoText="" 
-											activeId={this.state.tododayActive} 
-											addTodo={this.addTodo} 
-											toDoDaysActive={this.toDoDaysActive}
+								activeId={this.state.tododayActive} 
+								addTodo={this.addTodo} 
+								toDoDaysActive={this.toDoDaysActive}
 					/>
 
 					{this.state.tododaytask.map((todo) => { 
 						return ( 
-							<TodoItem todo={todo} 
-												key={todo.id} 
-												id={todo.id} 
-												removeTodo={this.removeTodo}
-												apdateTodoText={this.apdateTodo}
+							<TodoItem	todo={todo} 
+										key={todo.id} 
+										id={todo.id} 
+										removeTodo={this.removeTodo}
+										apdateTodoText={this.apdateTodo}
 							/>
-									)
-							})
+						)
+					})
 					}
 					</div>
 				</header>
