@@ -61,19 +61,22 @@ export default class Tododays extends React.Component {
 		let displayElement = "";
 
 		if(this.state.editMode){
-			displayElement = <input autoFocus 
-						className ="itemTwo" 
-						type = "text"
-						placeholder = "Введите значение" 
-						value = {this.state.value}
-						onChange={this.handleChange}  
-						onBlur={() => this.apdateName(this.props)} 
-					/>;
+			displayElement =(
+				 <input autoFocus 
+					className ="itemTwo" 
+					type = "text"
+					placeholder = "Введите значение" 
+					value = {this.state.value}
+					onChange={this.handleChange}  
+					onBlur={() => this.apdateName(this.props)} />
+			);
 		}else{
-			displayElement = <span onClick={(e) => this.activeTododay(this.props.tododay.id) } 
-									onDoubleClick={this.goToEditMode.bind(this)}>
-									{days} 
-							</span>;
+			displayElement = ( 
+				<span onClick={(e) => this.activeTododay(this.props.tododay.id) } 
+					onDoubleClick={this.goToEditMode.bind(this)}>
+					{days} 
+				</span>
+			);
 		}
 
 		return ( 

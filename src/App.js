@@ -242,7 +242,7 @@ class App extends Component {
 								})
 								}
 								<li className = "new-to-do-days" onClick={() => this.addTododays(true)}>
-										<span>+</span> 
+									<span>+</span> 
 								</li>
 							</ul>
 						</div>
