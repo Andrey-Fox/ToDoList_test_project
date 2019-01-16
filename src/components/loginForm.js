@@ -29,7 +29,7 @@ export default class LoginForm extends React.Component {
 	}
 
 	onSubmit(e) {
-		let	user =[]
+		let user =[]
 
 		if(this.state.login.length < 5){
 

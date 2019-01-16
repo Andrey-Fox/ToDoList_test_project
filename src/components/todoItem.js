@@ -48,13 +48,13 @@ export default class TodoItem extends React.Component {
 
 		if(this.state.editMode){
 			displayElement = ( 
-							<input autoFocus
-								className ="item grid" 
-								type="text"
-								placeholder="Введите новое значение" 
-								value={this.state.value}
-								onChange={this.handleChange}  
-								onBlur={() => this.apdateTodoText(this.props)} />
+						<input autoFocus
+							className ="item grid" 
+							type="text"
+							placeholder="Введите новое значение" 
+							value={this.state.value}
+							onChange={this.handleChange}  
+							onBlur={() => this.apdateTodoText(this.props)} />
 			);
 		}else{
 			displayElement = ( <div onDoubleClick={this.goToEditMode.bind(this)}>{text}</div>
@@ -65,7 +65,7 @@ export default class TodoItem extends React.Component {
 			<div className="to-do-list grid">
 				{displayElement} 
 				<button className="buttons btn" 
-					onClick={(e) => this.removeTodo(this.props.id) } >Удалить
+					onClick={(e) => this.removeTodo(this.props.id)}>Удалить
 				</button>
 			</div>
 		);

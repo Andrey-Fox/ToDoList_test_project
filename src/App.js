@@ -232,11 +232,11 @@ class App extends Component {
 							<ul>
 								{this.state.tododays.map((tododays)=> {
 									return(
-										<Tododays	tododay={tododays} 
-													addtododays = {this.addTododays}  
-													removeTododay={this.removeTododay}
-													toDoDaysActive={this.toDoDaysActive}
-													apdateName ={this.apdateNamedays}
+										<Tododays tododay={tododays} 
+											addtododays = {this.addTododays}  
+											removeTododay={this.removeTododay}
+											toDoDaysActive={this.toDoDaysActive}
+											apdateName ={this.apdateNamedays}
 										/>
 									)
 								})
@@ -247,19 +247,19 @@ class App extends Component {
 							</ul>
 						</div>
 
-					<TodoInput	todoText="" 
-								activeId={this.state.tododayActive} 
-								addTodo={this.addTodo} 
-								toDoDaysActive={this.toDoDaysActive}
+					<TodoInput todoText="" 
+						activeId={this.state.tododayActive} 
+						addTodo={this.addTodo} 
+						toDoDaysActive={this.toDoDaysActive}
 					/>
 
 					{this.state.tododaytask.map((todo) => { 
 						return ( 
-							<TodoItem	todo={todo} 
-										key={todo.id} 
-										id={todo.id} 
-										removeTodo={this.removeTodo}
-										apdateTodoText={this.apdateTodo}
+							<TodoItem todo={todo} 
+								key={todo.id} 
+								id={todo.id} 
+								removeTodo={this.removeTodo}
+								apdateTodoText={this.apdateTodo}
 							/>
 						)
 					})
